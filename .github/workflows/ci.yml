@@ -7,42 +7,16 @@ on:
     branches: [ master, main ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-      PKG_CONFIG_PATH: /home/runner/lib/pkgconfig
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install Cap'n Proto
-        run: |
-            export DEBIAN_FRONTEND=noninteractive
-            env
-            sudo apt-get install -y gcc-7 g++-7
-            curl -O https://capnproto.org/capnproto-c++-0.8.0.tar.gz
-            tar zxf capnproto-c++-0.8.0.tar.gz
-            cd capnproto-c++-0.8.0
-            ./configure --prefix=$HOME CC=gcc-7 CXX=g++-7
-            make -j
-            make install
-            cd ..
-
-      - name: Set up JDK 20
-        uses: actions/setup-java@v1
-        with:
-          java-version: 20
-
-      - name: Build with Maven
-        env:
-          LD_LIBRARY_PATH: /home/runner/lib
-        run: |
-            env
-            make CC=gcc-7 CXX=g++-7
-            env PATH="${PATH}:/home/runner/bin" mvn -e -X compile
-
-      - name: Run tests
-        env:
-          LD_LIBRARY_PATH: /home/runner/lib
-        run: |
-            env PATH="${PATH}:/home/runner/bin"
-            env PATH="${PATH}:/home/runner/bin" mvn -e -X test
+  ## Build with Gradle
+  build-gradle:
+    name: "Build"
+    uses: elide-dev/build-infra/.github/workflows/jvm.gradle.yml@main
+    secrets: inherit
+    permissions:
+      actions: read
+      checks: write
+      id-token: write
+      contents: write
+      packages: write
+      pull-requests: write
+    with: {}
