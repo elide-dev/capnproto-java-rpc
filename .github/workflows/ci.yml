@@ -19,4 +19,5 @@ jobs:
       contents: write
       packages: write
       pull-requests: write
-    with: {}
+    with:
+      jvm: '20'
