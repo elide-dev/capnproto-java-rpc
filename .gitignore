@@ -5,6 +5,5 @@ project/target
 *.ipr
 *.iws
 capnpc-java
-generated/
 .gradle
 build/
