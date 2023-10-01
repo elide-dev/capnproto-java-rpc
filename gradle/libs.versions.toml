@@ -5,4 +5,5 @@ junit = "4.13.1"
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]
+sonar = { id = "org.sonarqube", version = "4.3.1.3277" }
 testlogger = { id = "com.adarshr.test-logger", version = "3.2.0" }
