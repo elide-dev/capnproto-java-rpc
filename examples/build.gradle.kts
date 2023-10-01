@@ -15,8 +15,3 @@ dependencies {
 }
 
 description = "capnproto-java examples"
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_20
-    targetCompatibility = JavaVersion.VERSION_20
-}

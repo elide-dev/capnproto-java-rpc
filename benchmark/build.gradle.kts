@@ -13,8 +13,3 @@ dependencies {
 }
 
 description = "capnproto-java benchmark"
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_20
-    targetCompatibility = JavaVersion.VERSION_20
-}
