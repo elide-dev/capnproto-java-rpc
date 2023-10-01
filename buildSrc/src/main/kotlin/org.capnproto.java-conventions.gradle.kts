@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.capnproto"
-version = "0.1.17-elide-SNAPSHOT"
+version = "0.1.17-elide"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_20
@@ -22,6 +22,16 @@ tasks {
 publishing {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/elide-dev/capnproto-java-rpc")
+                credentials {
+                    username = System.getenv("GITHUB_ACTOR")
+                    password = System.getenv("GITHUB_TOKEN")
+                }
+            }
+        }
     }
 }
 
