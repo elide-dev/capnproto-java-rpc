@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.capnproto"
-version = "0.1.17-elide"
+version = "0.1.18-elide"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
