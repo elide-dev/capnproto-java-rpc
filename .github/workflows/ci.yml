@@ -21,3 +21,5 @@ jobs:
       pull-requests: write
     with:
       jvm: '20'
+      checks: true
+
